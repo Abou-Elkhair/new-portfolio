@@ -1,0 +1,33 @@
+.project-art-sas{background:linear-gradient(140deg,#e8f6f8,#e8edf7)}
+.project-art-sas .project-screen{height:auto;width:53%;max-height:75%;max-width:53%;bottom:8%;object-fit:contain;border-radius:7px}
+.project-art-sas .screen-front{left:50%;width:62%;max-width:62%;transform:translateX(-50%);z-index:2}
+.project-art-sas .screen-back-left{left:-2%;bottom:15%;transform:rotate(-4deg);z-index:1}
+.project-art-sas .screen-back-right{right:-2%;bottom:15%;transform:rotate(4deg);z-index:1}
+.sas-vaya-preview{position:relative;height:min(56vw,610px);min-height:390px;margin:68px -3vw 0;overflow:hidden;border:1px solid rgba(145,232,244,.18);border-radius:15px;background:linear-gradient(125deg,#073b5a,#092c49 72%,#38224f);isolation:isolate}
+.sas-vaya-preview:after{content:"";position:absolute;inset:40% -10% -75%;border:1px solid rgba(145,232,244,.18);border-radius:50%;z-index:-1}
+.sas-vaya-preview img{position:absolute;bottom:-5%;height:87%;width:55%;max-width:55%;object-fit:contain;border-radius:7px 7px 0 0;filter:drop-shadow(0 24px 35px rgba(0,0,0,.28))}
+.sas-vaya-preview .sas-preview-main{left:50%;width:64%;max-width:64%;height:92%;transform:translateX(-50%);z-index:3}
+.sas-vaya-preview .sas-preview-left{left:2%;bottom:-8%;transform:rotate(-4deg);z-index:1}
+.sas-vaya-preview .sas-preview-right{right:2%;bottom:-8%;transform:rotate(4deg);z-index:2}
+.sas-vaya-preview>span{position:absolute;left:21px;bottom:17px;z-index:4;color:#bfeff2;font:500 9px var(--mono);letter-spacing:.1em}
+.sas-vaya-screens{background:#f3f7fa}
+.sas-vaya-screens .gobus-section-heading{grid-template-columns:100px minmax(0,780px)}
+.sas-vaya-carousel{margin-top:58px}
+.sas-vaya-carousel .carousel-track{gap:20px}
+.sas-vaya-carousel .carousel-slide{width:min(70vw,900px)}
+.sas-vaya-carousel .screen-wrap{height:550px;padding:14px;background:#e5eef4;border-radius:14px;align-items:center}
+.sas-vaya-carousel .screen-wrap img{width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;border-radius:7px;filter:drop-shadow(0 12px 18px rgba(12,45,69,.16))}
+.sas-vaya-carousel figcaption{min-height:66px;color:#587083}
+.sas-vaya-carousel figcaption b{color:#174a68}
+@media(max-width:760px){
+  .sas-vaya-preview{height:320px;min-height:320px;margin:42px -22px 0;border-radius:0}
+  .sas-vaya-preview img{height:76%;width:62%;max-width:62%;bottom:11%}
+  .sas-vaya-preview .sas-preview-main{height:83%;width:74%;max-width:74%;bottom:7%}
+  .sas-vaya-preview .sas-preview-left{left:-10%;bottom:6%}
+  .sas-vaya-preview .sas-preview-right{right:-10%;bottom:6%}
+  .sas-vaya-preview>span{left:15px;bottom:13px;font-size:8px}
+  .sas-vaya-screens{padding-left:22px;padding-right:22px}
+  .sas-vaya-screens .gobus-section-heading{grid-template-columns:1fr;gap:12px}
+  .sas-vaya-carousel .carousel-slide{width:88vw}
+  .sas-vaya-carousel .screen-wrap{height:315px;padding:8px;border-radius:10px}
+}
