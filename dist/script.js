@@ -52,6 +52,7 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
   const track = carousel.querySelector('.carousel-track');
   const viewport = carousel.querySelector('.carousel-viewport');
   const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+  const carouselLabel = carousel.dataset.carouselLabel || 'screens';
   if (!track || !viewport || slides.length < 2) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -98,16 +99,16 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
 
   const controls = document.createElement('div');
   controls.className = 'carousel-controls';
-  controls.setAttribute('aria-label', 'Carousel controls');
+  controls.setAttribute('aria-label', `${carouselLabel[0].toUpperCase()}${carouselLabel.slice(1)} carousel controls`);
   const previous = document.createElement('button');
   previous.type = 'button';
   previous.className = 'carousel-control carousel-control-previous';
-  previous.setAttribute('aria-label', 'Previous screens');
+  previous.setAttribute('aria-label', `Previous ${carouselLabel}`);
   previous.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M14.5 5.5 8 12l6.5 6.5" /></svg>';
   const next = document.createElement('button');
   next.type = 'button';
   next.className = 'carousel-control carousel-control-next';
-  next.setAttribute('aria-label', 'Next screens');
+  next.setAttribute('aria-label', `Next ${carouselLabel}`);
   next.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="m9.5 5.5 6.5 6.5-6.5 6.5" /></svg>';
   previous.addEventListener('click', () => moveBy(1));
   next.addEventListener('click', () => moveBy(-1));
@@ -242,7 +243,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
-const revealTargets = document.querySelectorAll('.portfolio-hero > *, .case-index > *, .experience > *, .case-section > *, .next-case > *');
+const revealTargets = document.querySelectorAll('.portfolio-hero > *, .partner-strip > *, .case-index > *, .experience > *, .case-section > *, .next-case > *');
 revealTargets.forEach((target) => target.classList.add('reveal'));
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
