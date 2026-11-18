@@ -25,7 +25,7 @@
 .site-header .brand .brand-name b{color:#58a746;font-weight:800}
 .site-header .brand .brand-role{padding-left:9px;border-left:1px solid currentColor;color:inherit;font:500 8px/1 var(--mono);letter-spacing:.08em;opacity:.58}
 .selected-work-gallery{margin-top:142px}
-.selected-work-heading{margin-left:150px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:7vw;align-items:end}
+.selected-work-heading{margin-left:0;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:7vw;align-items:end}
 .selected-work-heading h3{font-size:clamp(38px,4.5vw,62px);line-height:.98;letter-spacing:-.065em;margin:20px 0 0}
 .selected-work-heading h3 em{font-family:var(--serif);font-weight:400}
 .selected-work-heading>p{color:var(--muted);font-size:14px;line-height:1.65;margin:0 0 3px}

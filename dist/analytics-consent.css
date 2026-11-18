@@ -1,0 +1,208 @@
+.analytics-consent {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 1000;
+  font-family: var(--sans);
+  color: #f7fbf5;
+  pointer-events: none;
+}
+
+.analytics-consent__bar {
+  pointer-events: auto;
+  background: rgba(16, 47, 41, .98);
+  border-top: 1px solid rgba(221, 255, 88, .24);
+  box-shadow: 0 -10px 28px rgba(9, 26, 22, .14);
+}
+
+.analytics-consent__panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1280px;
+  min-height: 54px;
+  margin: 0 auto;
+  padding: 10px clamp(24px, 4.4vw, 72px);
+}
+
+.analytics-consent__copy {
+  margin: 0;
+  color: #e1ebe5;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: -.01em;
+}
+
+.analytics-consent__actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.analytics-consent button {
+  font: 600 10px/1 var(--sans);
+  cursor: pointer;
+}
+
+.analytics-consent__allow {
+  min-height: 32px;
+  padding: 0 14px;
+  border: 1px solid #ddff58;
+  border-radius: 999px;
+  background: #ddff58;
+  color: #12342d;
+  transition: background .2s ease, color .2s ease;
+}
+
+.analytics-consent__allow:hover,
+.analytics-consent__allow:focus-visible {
+  background: #fff;
+  color: #102f29;
+  outline: none;
+}
+
+.analytics-consent__reject {
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(237, 246, 239, .36);
+  border-radius: 999px;
+  background: transparent;
+  color: #f7fbf5;
+  transition: border-color .2s ease, background .2s ease;
+}
+
+.analytics-consent__reject:hover,
+.analytics-consent__reject:focus-visible {
+  border-color: #f7fbf5;
+  background: rgba(255, 255, 255, .08);
+  outline: none;
+}
+
+.analytics-consent__minimize {
+  display: inline-grid;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(237, 246, 239, .28);
+  border-radius: 50%;
+  background: transparent;
+  color: #e1ebe5;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.analytics-consent__minimize svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.analytics-consent__minimize:hover,
+.analytics-consent__minimize:focus-visible {
+  border-color: #ddff58;
+  background: rgba(221, 255, 88, .1);
+  color: #ddff58;
+  outline: none;
+}
+
+.analytics-consent__toggle {
+  position: absolute;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  left: max(16px, env(safe-area-inset-left));
+  display: none;
+  pointer-events: auto;
+  min-height: 32px;
+  padding: 0 13px;
+  border: 1px solid rgba(16, 47, 41, .18);
+  border-radius: 999px;
+  background: #f8fbf7;
+  color: #163c34;
+  box-shadow: 0 8px 20px rgba(9, 26, 22, .14);
+}
+
+.analytics-consent__toggle:hover,
+.analytics-consent__toggle:focus-visible {
+  border-color: #58a746;
+  background: #fff;
+  outline: none;
+}
+
+.analytics-consent.is-collapsed .analytics-consent__bar {
+  display: none;
+}
+
+.analytics-consent.is-collapsed .analytics-consent__toggle {
+  display: inline-flex;
+  align-items: center;
+}
+
+body.has-analytics-consent {
+  padding-bottom: 54px;
+}
+
+.analytics-preferences {
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(184, 200, 191, .55);
+  background: transparent;
+  color: #b8c8bf;
+  font: 500 10px var(--mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.analytics-preferences:hover,
+.analytics-preferences:focus-visible {
+  color: #fff;
+  border-color: #fff;
+  outline: none;
+}
+
+@media (max-width: 640px) {
+  .analytics-consent__panel {
+    gap: 10px;
+    min-height: 56px;
+    padding: 8px 16px;
+  }
+
+  .analytics-consent__copy {
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .analytics-consent__allow,
+  .analytics-consent__reject,
+  .analytics-consent__toggle {
+    min-height: 30px;
+  }
+
+  .analytics-consent__minimize {
+    width: 26px;
+    height: 26px;
+  }
+
+  .analytics-consent__toggle {
+    bottom: max(10px, env(safe-area-inset-bottom));
+    left: max(12px, env(safe-area-inset-left));
+  }
+
+  body.has-analytics-consent {
+    padding-bottom: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .analytics-consent__allow,
+  .analytics-consent__reject,
+  .analytics-consent__minimize,
+  .analytics-consent__toggle {
+    transition: none;
+  }
+}

@@ -1,4 +1,5 @@
 /* Home-only content must never bleed into a project route. */
+.case-mode .partner-strip,
 .case-mode .work-history,
 .case-mode .home-contact{display:none}
 
