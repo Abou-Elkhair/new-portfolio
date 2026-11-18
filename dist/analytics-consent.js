@@ -12,6 +12,7 @@
   let collapseTimer;
   let consentRequired = false;
   let clarityLoaded = false;
+  let vercelAnalyticsLoaded = false;
 
   const getPreference = () => {
     try {
@@ -58,6 +59,26 @@
     document.head.appendChild(script);
   };
 
+  const loadVercelAnalytics = () => {
+    if (vercelAnalyticsLoaded) return;
+
+    vercelAnalyticsLoaded = true;
+    window.va = window.va || function vercelAnalyticsQueue() {
+      (window.vaq = window.vaq || []).push(arguments);
+    };
+
+    const script = document.createElement('script');
+    script.defer = true;
+    script.src = '/_vercel/insights/script.js';
+    script.dataset.vercelAnalytics = 'portfolio';
+    document.head.appendChild(script);
+  };
+
+  const loadAnalytics = () => {
+    loadClarity();
+    loadVercelAnalytics();
+  };
+
   const revokeAnalyticsStorage = () => {
     if (typeof window.clarity !== 'function') return;
     window.clarity('consentv2', {
@@ -91,7 +112,7 @@
 
     banner.querySelector('[data-analytics-allow]').addEventListener('click', () => {
       setPreference('granted');
-      loadClarity();
+      loadAnalytics();
       hideBanner();
     });
 
@@ -156,14 +177,14 @@
     consentRequired = await getConsentRequirement();
 
     if (!consentRequired) {
-      loadClarity();
+      loadAnalytics();
       return;
     }
 
     setPreferencesControlVisible(true);
     const preference = getPreference();
     if (preference === 'granted') {
-      loadClarity();
+      loadAnalytics();
       return;
     }
     if (preference === 'denied') return;
